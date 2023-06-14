@@ -48,21 +48,4 @@ export class GroupService {
   async remove(id: string): Promise<Group> {
     return this.groupModel.findByIdAndDelete(id).exec();
   }
-
-  async copyAllToDB() {
-    const response = await axios.get(
-      'https://schedule.kpi.ua/api/schedule/groups',
-    );
-    const groups = response.data.data;
-    // console.log(groups);
-
-    groups.forEach(async (group) => {
-      const newGroup = new this.groupModel({
-        name: group.name,
-        faculty: group.faculty,
-        apiId: group.id,
-      });
-      await newGroup.save();
-    });
-  }
 }

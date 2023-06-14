@@ -24,34 +24,25 @@ export class SubjectScheduleController {
   }
 
   @Get()
-  // @Header('Cache-Control', 'public, max-age=3600')
   findAll() {
     return this.subjectScheduleService.findAll();
   }
-  @Get('copy-all-to-db')
-  copyAllToDB() {
-    return this.subjectScheduleService.copyAllToDB();
-  }
   @Get(':id')
-  // @Header('Cache-Control', 'public, max-age=3600')
   findOne(@Param('id') id: string) {
     return this.subjectScheduleService.findOne(id);
   }
 
   @Get('/group/:id')
-  // @Header('Cache-Control', 'public, max-age=3600')
   findAllByGroup(@Param('id') id: string) {
     return this.subjectScheduleService.findAllByGroup(id);
   }
 
   @Get('/teacher/:id')
-  // @Header('Cache-Control', 'public, max-age=3600')
   findAllByTeacher(@Param('id') id: string) {
     return this.subjectScheduleService.findAllByTeacher(id);
   }
 
   @Patch(':id')
-  // @Header('Cache-Control', 'public, max-age=3600')
   update(
     @Param('id') id: string,
     @Body() updateSubjectScheduleDto: UpdateSubjectScheduleDto,

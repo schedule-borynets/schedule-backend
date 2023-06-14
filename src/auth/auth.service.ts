@@ -1,7 +1,6 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { UserService } from 'src/user/user.service';
 import { CreateUserDto } from 'src/user/dto/create-user.dto';
-import { ScheduleType } from 'src/user/schedule-type';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
 import { UserJwtPayload } from './jwt-payload.interface';
@@ -18,33 +17,7 @@ export class AuthService {
     private readonly refreshTokenService: RefreshTokenService,
   ) {}
 
-  async validateOAuthLogin(profile: any): Promise<string> {
-    let user = await this.userService.findOneByGoogleId(profile.googleId);
-    if (!user) {
-      const createUserDto: CreateUserDto = {
-        name: `${profile.firstName} ${profile.lastName}`,
-        email: profile.email,
-        googleId: profile.googleId,
-        scheduleType: ScheduleType.Group,
-      };
-      user = await this.userService.create(createUserDto);
-    }
-    // you can add additional fields to the jwt
-    return JSON.stringify(user);
-  }
   async register(createUserDto: CreateUserDto) {
-    // const hashedPassword = await bcrypt.hash(createUserDto.password, 12);
-    // const user = await this.userService.create({
-    //   ...createUserDto,
-    //   password: hashedPassword,
-    // });
-
-    // if (!user) {
-    //   throw new BadRequestException('Invalid registration details');
-    // }
-
-    // return user;
-
     const candidate = await this.userService.findOneByProperty(
       'email',
       createUserDto.email,

@@ -1,38 +1,20 @@
-import { GoogleAuthGuard } from './google-auth.guard';
 // auth.controller.ts
 import {
   Controller,
-  Get,
-  UseGuards,
-  Req,
   Post,
   Body,
   Res,
   HttpException,
   HttpStatus,
 } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
 import { AuthService } from './auth.service';
 import { CreateUserDto } from 'src/user/dto/create-user.dto';
 import { Response } from 'express';
 import { LoginAuthDto } from 'src/auth/dto/login-auth.dto';
-import { RefreshTokenService } from 'src/refresh-token/refresh-token.service';
 
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
-
-  @Get('google')
-  @UseGuards(GoogleAuthGuard)
-  async googleAuth(@Req() req) {
-    // initiates the Google OAuth2 login flow
-  }
-
-  @Get('google/callback')
-  @UseGuards(GoogleAuthGuard)
-  googleAuthRedirect(@Req() req) {
-    return this.authService.validateOAuthLogin(req.user);
-  }
 
   @Post('register')
   async register(@Body() createUserDto: CreateUserDto, @Res() res: Response) {

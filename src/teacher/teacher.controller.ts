@@ -20,11 +20,6 @@ export class TeacherController {
     return this.teacherService.create(createTeacherDto);
   }
 
-  @Get('/copy-all-to-db')
-  copyAllToDB() {
-    return this.teacherService.copyAllToDB();
-  }
-
   @Get()
   findAll() {
     return this.teacherService.findAll();

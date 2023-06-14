@@ -4,7 +4,6 @@ import { Model, ObjectId } from 'mongoose';
 import { User, UserDocument } from 'src/user/schemas/user.schema';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { UserDto } from 'src/user/dto/user.dto';
 
 @Injectable()
 export class UserService {
@@ -29,10 +28,6 @@ export class UserService {
       throw new Error('User not found');
     }
     return user;
-  }
-  async findOneByGoogleId(googleId: string): Promise<User> {
-    // todo check if works or should be the callback provided
-    return this.userModel.findOne({ googleId }).exec();
   }
 
   async findOneByProperty(property: keyof CreateUserDto, value: any) {

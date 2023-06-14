@@ -7,6 +7,5 @@ export class CreateUserDto {
   readonly scheduleType?: ScheduleType | null;
   readonly group?: string | null;
   readonly teacher?: string | null;
-  readonly googleId?: string | null;
   readonly hiddenSubjects?: string[];
 }

@@ -37,22 +37,4 @@ export class TeacherService {
   async remove(id: string): Promise<Teacher> {
     return this.teacherModel.findByIdAndDelete(id).exec();
   }
-
-  async copyAllToDB() {
-    const response = await axios.get(
-      'https://schedule.kpi.ua/api/schedule/lecturer/list',
-    );
-    const teachers = response.data.data;
-    // console.log(teachers);
-
-    teachers.forEach(async (teacher) => {
-      const newTeacher = new this.teacherModel({
-        name: teacher.name,
-        apiId: teacher.id,
-      });
-      await newTeacher.save();
-    });
-  }
 }
-
-// const c = await this.teacherModel.collection.countDocuments();

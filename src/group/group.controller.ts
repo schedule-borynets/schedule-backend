@@ -10,7 +10,6 @@ import {
 import { GroupService } from './group.service';
 import { CreateGroupDto } from './dto/create-group.dto';
 import { UpdateGroupDto } from './dto/update-group.dto';
-import axios from 'axios';
 
 @Controller('group')
 export class GroupController {
@@ -21,10 +20,6 @@ export class GroupController {
     return this.groupService.create(createGroupDto);
   }
 
-  @Get('copy-all-to-db')
-  copyAllToDB() {
-    return this.groupService.copyAllToDB();
-  }
   @Get()
   findAll() {
     return this.groupService.findAll();

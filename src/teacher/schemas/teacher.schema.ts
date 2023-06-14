@@ -9,9 +9,6 @@ export class Teacher {
   @Prop()
   name: string;
 
-  @Prop([{ type: SchemaTypes.ObjectId, ref: Subject.name, default: [] }])
-  subjects: Types.ObjectId[];
-
   @Prop()
   apiId: string;
 }

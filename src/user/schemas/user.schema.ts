@@ -26,9 +26,6 @@ export class User {
   @Prop({ type: SchemaTypes.ObjectId, ref: Teacher.name, default: null })
   teacher: Types.ObjectId;
 
-  @Prop({ default: null })
-  googleId: string;
-
   @Prop([{ type: SchemaTypes.ObjectId, ref: SubjectSchedule.name }])
   hiddenSubjects: SubjectSchedule[];
 }

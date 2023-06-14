@@ -12,6 +12,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AuthModule } from './auth/auth.module';
 import { RefreshTokenModule } from './refresh-token/refresh-token.module';
 import { SubjectScheduleModule } from './subject-schedule/subject-schedule.module';
+import { LinkModule } from './link/link.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { SubjectScheduleModule } from './subject-schedule/subject-schedule.modul
     AuthModule,
     RefreshTokenModule,
     SubjectScheduleModule,
+    LinkModule,
   ],
   controllers: [AppController],
   providers: [AppService],

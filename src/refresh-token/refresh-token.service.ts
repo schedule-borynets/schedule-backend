@@ -1,6 +1,4 @@
 import { Injectable } from '@nestjs/common';
-// import { CreateRefreshTokenDto } from './dto/create-refresh-token.dto';
-// import { UpdateRefreshTokenDto } from './dto/update-refresh-token.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import {
   RefreshToken,

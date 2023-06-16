@@ -4,7 +4,6 @@ import { Model } from 'mongoose';
 import { Group, GroupDocument } from 'src/group/schemas/group.schema';
 import { CreateGroupDto } from './dto/create-group.dto';
 import { UpdateGroupDto } from './dto/update-group.dto';
-import axios from 'axios';
 
 @Injectable()
 export class GroupService {

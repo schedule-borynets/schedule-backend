@@ -1,7 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, SchemaTypes, Types } from 'mongoose';
 import { SubjectSchedule } from 'src/subject-schedule/schemas/subject-schedule.schema';
-import { Subject } from 'src/subject/schemas/subject.schema';
 
 import { User } from 'src/user/schemas/user.schema';
 

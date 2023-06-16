@@ -1,6 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document, SchemaTypes, Types } from 'mongoose';
-import { Group } from 'src/group/schemas/group.schema';
+import { Document } from 'mongoose';
 
 export interface Time {
   week: number;

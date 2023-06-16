@@ -50,7 +50,6 @@ export class CommentController {
   @Patch(':id')
   @UseGuards(JwtAuthGuard)
   update(@Param('id') id: string, @Body() updateCommentDto: UpdateCommentDto) {
-    // todo: add user id to params
     return this.commentService.update(id, updateCommentDto);
   }
 

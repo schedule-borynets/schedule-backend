@@ -8,14 +8,8 @@ import {
 } from 'src/subject-schedule/schemas/subject-schedule.schema';
 import { Model } from 'mongoose';
 import { GroupService } from 'src/group/group.service';
-import axios from 'axios';
 import { SubjectService } from 'src/subject/subject.service';
 import { TeacherService } from 'src/teacher/teacher.service';
-function wait(ms) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, ms);
-  });
-}
 
 @Injectable()
 export class SubjectScheduleService {

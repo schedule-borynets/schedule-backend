@@ -18,5 +18,3 @@ export class RefreshToken {
 }
 
 export const RefreshTokenSchema = SchemaFactory.createForClass(RefreshToken);
-
-// TokenSchema.set('toJSON', { getters: true });
